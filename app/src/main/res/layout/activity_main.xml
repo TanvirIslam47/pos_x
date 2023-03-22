@@ -6,66 +6,37 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@color/md_grey_50"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/homeDrawerId"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:orientation="horizontal">
+<!--        <include layout="@layout/content_home"/>-->
 
-        <ImageView
-            android:id="@+id/penaltyPrintHomeId"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_menu" />
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/homeNavigationId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/nav_home_header"
+            android:fitsSystemWindows="true">
 
-    </LinearLayout>
+            <ExpandableListView
+                android:id="@+id/navigationMenuId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="160dp"
+                android:layout_marginBottom="?actionBarSize"
+                android:layoutDirection="rtl"
+                android:background="@android:color/white">
+            </ExpandableListView>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:orientation="horizontal">-->
+        </com.google.android.material.navigation.NavigationView>
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:layout_centerInParent="true"
-                android:fontFamily="sans-serif-medium"
-                android:padding="15dp"
-                android:text="POS X"
-                android:textColor="@color/md_blue_grey_800"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-<!--        </LinearLayout>-->
-
-    </RelativeLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_payment"
-        style="@style/Widget.App.ButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:elevation="10dp"
-        android:fontFamily="sans-serif-condensed"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:stateListAnimator="@null"
-        android:text="Complete Transaction"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:translationZ="5dp"
-        app:cornerRadius="5dp" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </LinearLayout>

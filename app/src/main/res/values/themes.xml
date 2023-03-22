@@ -35,5 +35,14 @@
         <item name="colorPrimary">#008ecf</item>
     </style>
 
+    <style name="Widget.App.ButtonStyle.green"
+        parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ButtonOverlayGreen</item>
+    </style>
+
+    <style name="ButtonOverlayGreen">
+        <item name="colorPrimary">@android:color/holo_green_light</item>
+    </style>
+
 
 </resources>

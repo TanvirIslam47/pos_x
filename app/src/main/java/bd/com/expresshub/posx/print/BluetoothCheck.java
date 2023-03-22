@@ -198,7 +198,18 @@ public class BluetoothCheck extends AppCompatActivity implements Runnable {
             Bitmap bitmap = null;
             PrintPic printPic = PrintPic.getInstance();
             try {
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.govt_logo);
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.untitled2);
+
+
+            } catch (Exception e) {
+                // handle exception
+                Log.e("bitmap", e.toString());
+            }
+
+            Bitmap bitmap1 = null;
+            PrintPic printPic1 = PrintPic.getInstance();
+            try {
+                bitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.lotto_logo);
 
 
             } catch (Exception e) {
@@ -211,17 +222,50 @@ public class BluetoothCheck extends AppCompatActivity implements Runnable {
 
                 outputStream = mBluetoothSocket.getOutputStream();
                 outputStream1 = mBluetoothSocket.getOutputStream();
-                String header = "\nGOVERNMENT OF THE PEOPLE REPUBLIC \nOF BANGLADESH \nNATIONAL BOARD OF REVENUE\n";
-//                String header = "\nBANGLADESH POWER DEVELOPMENT \nBOARD (BPDB)\nPenalty Bill\n";
+//                String header = "\nGOVERNMENT OF THE PEOPLE REPUBLIC \nOF BANGLADESH \nNATIONAL BOARD OF REVENUE\n";
                 outputStream.write(PrinterCommands.ESC_ALIGN_CENTER);
                 byte[] command = Utils.decodeBitmap(bitmap);
+                byte[] command1 = Utils.decodeBitmap(bitmap1);
 
                 outputStream.write(command);
                 Thread.sleep(2000);
                 outputStream.write(PrinterCommands.ESC_ALIGN_CENTER);
-                outputStream.write(header.getBytes());
+                outputStream.write(command1);
                 Thread.sleep(1000);
                 String BILL = "\n";
+
+                BILL = BILL + "Central Unit\n";
+                BILL = BILL + "Express Leather Products Ltd\n";
+                BILL = BILL + "Ashraf Shetu Shopping Complex\n";
+
+                BILL = BILL + "2nd Floor Tongi,Gazipur\n\n";
+                BILL = BILL + "Sales Unit\n";
+                BILL = BILL + "Express Leather Products Ltd\n";
+                BILL = BILL + "34, Garib-e-Newaj Av, Sector 11,Uttara, 01704763701\n";
+                BILL = BILL + "[Mushak-6.3] [See clauses(c) & (f) of Sub-Rule (1) of Rule 40]\n";
+
+                BILL = BILL + "VAT Reg #000100885-0102\n";
+                BILL = BILL + "--------------Print------------\n";
+                BILL = BILL + "Invoice no-: " + "SR037/9000103/1060880" + "\n";
+                BILL = BILL + "Bill Date--: " + "Mar 14, 2023 10:26:05 AM" + "\n";
+                BILL = BILL + "Cashier----: " + "Hasina Nasrin (1005258)" + "\n";
+                BILL = BILL + "Served By--: " + "Chandni Akter (7143)" + "\n";
+                BILL = BILL + "Customer---: " + " " + "\n";
+                BILL = BILL + "Contact----: " + "01871867857" + "\n";
+                BILL = BILL + "Total Point: " + "3" + "\n";
+                BILL = BILL + "--------------------------------\n";
+                BILL = BILL + "1 SOCKS REGULAR  BLACK   NA  5%\n";
+                BILL = BILL + " 8EE16091114  150 Tk x 1  0  150.00 Tk\n";
+                BILL = BILL + "--------------------------------\n";
+                BILL = BILL + "1 SPORTS SHOES FOR MAN BLACK NA  5%\n";
+                BILL = BILL + " 8EE16091114  150 Tk x 1  0  150.00 Tk\n";
+                BILL = BILL + "----------Bill Summary----------\n";
+                BILL = BILL + "Gross Amount-: 150.00 Tk\n";
+                BILL = BILL + "Vat Base-----: 142.86 Tk\n";
+                BILL = BILL + "Vat Amount---: 7.14 Tk\n";
+                BILL = BILL + "Net Payable--: 150.00 Tk\n";
+                BILL = BILL + "--------Payment Details---------\n";
+                BILL = BILL + "Cash Paid----: 150.00 Tk\n";
 
 //                if(INS_AMT == "") {
                    /** BILL = BILL + "--------------------------------\n";
@@ -291,11 +335,11 @@ public class BluetoothCheck extends AppCompatActivity implements Runnable {
 //                    BILL = BILL + "TOTAL BILL-: " + TOTAL_BILL_AMOUNT + "\n";
 //                }
 
-//                outputStream1.write(PrinterCommands.ESC_ALIGN_LEFT);
-//                outputStream1.write(PrinterCommands.FEED_LINE);
-//                outputStream1.write(PrinterCommands.ESC_ALIGN_LEFT);
-//                outputStream1.write(BILL.getBytes());
-//                Thread.sleep(1000);
+                outputStream1.write(PrinterCommands.ESC_ALIGN_LEFT);
+                outputStream1.write(PrinterCommands.FEED_LINE);
+                outputStream1.write(PrinterCommands.ESC_ALIGN_LEFT);
+                outputStream1.write(BILL.getBytes());
+                Thread.sleep(2000);
                 outputStream1.write(PrinterCommands.ESC_ALIGN_CENTER);
                 outputStream1.write(PrinterCommands.FEED_LINE);
                 outputStream1.write(PrinterCommands.FEED_LINE);

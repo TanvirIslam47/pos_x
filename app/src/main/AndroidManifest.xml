@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.POSX">
-        <activity android:name=".print.BluetoothCheck"></activity>
+        <activity android:name=".PrintActivity"></activity>
+        <activity android:name=".PosActivity" />
+        <activity android:name=".print.BluetoothCheck" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -25,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
